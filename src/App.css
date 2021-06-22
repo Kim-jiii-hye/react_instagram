@@ -18,13 +18,101 @@ body{
 }
 
 .black-nav {
-  background: black;
+  background: white;
   width: 100%;
   display: flex;
-  color: white;
-  padding: 20px;
+  color: black;
+  padding: 15px;
   font-weight: 600;
+  font-size: 30px;
+}
+
+.title{
+  font-family: cursive;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.emoji div {
+  display: inline-block;
+  list-style: none;
+  
+}
+
+.feed{
+  padding:15px;
+}
+/* feed_profile 범위가 이상함.. 픽셀 우선 직접 확인 후 입력 */
+.feed_profile{
+  padding-bottom: 70px;
+}
+
+.feedimage{
+  margin-bottom: 20px;
+}
+
+.myid{
+  padding:15px;
+}
+.story{
+  width:100%;
+  display:flex;
+  padding:15px;
+}
+.good{
+  font-weight:bold;
+  font-size:20px;
+  text-align: left;
+}
+.contents{
+  font-size:20px;
+  text-align: left;
+}
+
+
+.myprofile{
+  
+  width:50px;
+  height:50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  float:left;
+  border:2px solid black;
+}
+
+.myid {
+  padding:10px;
+  float: left;
+  font-weight: bold;
+  text-decoration: underline;
   font-size: 20px;
+}
+
+.my_story{
+  float:left;
+  width:80px;
+  height:80px;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 4px dashed #bcbcbc;
+}
+
+.friends_story{
+  float: left;
+  margin-right: 20px;
+  width:80px;
+  height:80px;
+  border-radius: 50%;
+  border: 4px dotted #111111;
+}
+.reaction{
+  margin-bottom: 80px;
+}
+
+.reaction div{
+  font-size:30px;
+  float:left;
+  margin:10px;
 }
 
 .list {
@@ -34,6 +122,15 @@ body{
   padding-right: 20px;
 }
 
+.comment_id {
+  margin-left: 20px;
+  float:left;
+}
+.comment{
+  font-size:20px;
+  margin: 10px;
+  font-family: sans-serif;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

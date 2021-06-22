@@ -1,17 +1,31 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
+import Slider from "react-slick";
 import logo from './logo.svg';
 import './App.css';
+import img1 from './img/flower.png';
+import macarong from './img/macarong.jpg';
+import macarong2 from './img/macarong2.jpg';
+import macarong3 from './img/macarong3.jpg';
+
+import Year from "react-live-clock";
+import Month from "react-live-clock";
+import Date from "react-live-clock";
+
+
 
 function App() {
-
-
   let [title, titleEdit] = useState(['남자 코트 추천', '강남 우동 맛집', '파이썬 독학']);
+  // let [commentModal, commentChangeModal] = useState(false);
   let [good, goodEdit] = useState(0);
   let [modal, changeModal] = useState(false);
   let [clicktitle, clicktitlechange] = useState(0);
-
   let [inputdata, inputdatachange] = useState('');
+
+  let [heart, heartCnt] = useState(0);//하트 개수 표현
+  let [commid, commidChange] = useState(['apple_123', 'banana_234', 'orange_495']);
+  let [comm, commChange] = useState(['맛있겠어요!', '마카롱 사진 이뻐요', '가나다라마바사 댓글']);
+
 
   function titleEdit2(){
     var newArray = [...title]; //딥카피.. 
@@ -20,32 +34,127 @@ function App() {
       // titleEdit(['여자 코트 추천', '강남 우동 맛집', '파이썬 독학']);
   }
 
+   const settings = {
+      dots: true,
+      infinite: true,
+      speed:500,
+      slidesToShow:1,
+      slidesToScroll: 1
+    }
+
+
   return (
     <div className="App">
+      {/* 인스타그램 최상위 네비게이션 */}
       <div className="black-nav">
-        <div>개발 Blog</div>
+        <div className="title">Instagram</div>
+        <div className="emoji" >
+          <div>➕</div>
+          <div>🤍</div>
+          <div>💌</div>
+        </div>
       </div>
 
-      <button onClick={ titleEdit2 }>버튼</button>
+      {/* 스토리 공간 */}
+      <div className="story">
+        <div className="my_story">
+          
+        </div>
+        <div className="friends_story">
 
+        </div>
+      </div>
+
+      {/* <button onClick={ titleEdit2 }>버튼</button> */}
+
+
+
+      <div className="feed">
+        {/* myinfo */}
+        <div className="feed_profile">
+          <img className="myprofile" src={img1} />
+          <div className="myid">hello_cake_atelier</div>
+        </div>
+
+        <div className="feedimage">
+          {/* <img src={feedimg} style={{height:'auto', width:'100%'}} /> */}
+          <Slider {...settings}>
+            <div>
+              <img src={macarong} style={{height:'auto', width:'100%'}} />
+            </div>
+            <div>
+              <img src={macarong2} style={{height:'auto', width:'100%'}} />
+            </div>
+            <div>
+              <img src={macarong3} style={{height:'auto', width:'100%'}} />
+            </div>
+          </Slider>
+        </div>
+
+        <div className="reaction">
+          <div><span onClick={() => heartCnt(heart + 1)}>🤍</span></div>
+          <div>
+            <span onClick={() => {commentChangeModal(!commentModal)}}>💬</span>
+          </div>
+          <div>💌</div>
+          <div className="mysave">☑</div>
+        </div>
+
+        <div className="good" >좋아요 { heart }개</div>
+        <div className="contents">
+          #macaron #dessert #coucou #today
+        </div>
+      </div>
+
+      <div className="comment">
+        <div className="comment_id">
+          {
+            commid.map(function(a, i) {
+              return(
+                <div className="commlist" key={i}>
+                  { a }
+                </div>
+              )
+            })
+          }
+        </div>
+        <div className="comment_cont">
+          {
+            comm.map(function(a, i) {
+              return(
+                <div className="commlist" key={i}>
+                  { a }
+                </div>
+              )
+            })
+          }
+        </div>
+      </div>
+  
+    
       {
         title.map(function(a, i) {
           return(
           <div className="list" key={i}>
             <h3 onClick={ () => { clicktitlechange(i) } }>{ a }<span onClick={()=>{goodEdit(good + 1)}}>👍</span>{ good }</h3>
-            <p>6월 3일 발행</p>
+            {/* <p>6월 3일 발행</p> */}
+            <div className="Year-Month">
+              <p>
+                <Year id="Year" format={"YYYY"} ticking={false} timezone={"KR/Pacific"} />
+                <Month format={"MMM"} ticking={false} timezone={"KR/Pracific"} />
+                <Date format={"DD"} ticking={false} timezone={"KR/Pracific"} />
+              </p>
+            </div>
             <hr />
           </div>
           )
         })
       }
-
-      
       {/* <input onChange={ (e)=>{ inputdatachange(e.target.value) }} /> */}
 
 
       <div className="publish">
-        <input onChange={ (e) => { inputdatachange(e.target.value) }}/>
+        <input onChange={ (e) => { inputdatachange(e.target.value) }} placeholder="댓글을 입력해주세요"/>
         <button onClick= { () => {
           var arrCopy = [...title];
           arrCopy.unshift(inputdata);
@@ -67,6 +176,8 @@ function App() {
     </div>
   );
 }
+
+
 function Modal(props){
   return (
       <div className="modal">
