@@ -61,6 +61,7 @@ function App() {
         ? <Modal title={title} clicktitle={clicktitle}></Modal>
         : null
       }
+      <Profile />
      
 
     </div>
@@ -82,10 +83,21 @@ export default App;
 class Profile extends React.Component {
   constructor() {
     super();
+    this.state = {name : 'Kim', age : 25}
+  }
+
+  // 상위에 있는 this값 바로 가져다 쓰기 때문에 this.change.bind(this)로 쓰지 않아도 된다
+  change = () => {
+    this.setState({name : 'Park'})
   }
   render(){
     return(
-      <div>프로필 입니다.</div>
+      <div>
+        <h3>프로필 입니다.</h3>
+        <p>저는 {this.state.name} 입니다.</p>
+        <p>나이는 {this.state.age}세 입니다.</p>
+        <button onClick={ this.change }>이름 바뀌는 버튼</button>
+      </div>
     )
   }
 }
