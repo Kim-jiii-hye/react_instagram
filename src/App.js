@@ -25,7 +25,8 @@ function App() {
   let [heart, heartCnt] = useState(0);//하트 개수 표현
   let [commid, commidChange] = useState(['apple_123', 'banana_234', 'orange_495']);
   let [comm, commChange] = useState(['맛있겠어요!', '마카롱 사진 이뻐요', '가나다라마바사 댓글']);
-
+  let [commidInput, commidInputChange] = useState('');
+  let [commInput, commInputChange] = useState('');
 
   function titleEdit2(){
     var newArray = [...title]; //딥카피.. 
@@ -99,10 +100,11 @@ function App() {
           <div>💌</div>
           <div className="mysave">☑</div>
         </div>
-
-        <div className="good" >좋아요 { heart }개</div>
-        <div className="contents">
-          #macaron #dessert #coucou #today
+        <div className="reaction2">
+          <div className="good" >좋아요 { heart }개</div>
+          <div className="contents">
+            #macaron #dessert #coucou #today
+          </div>
         </div>
       </div>
 
@@ -118,26 +120,45 @@ function App() {
             })
           }
         </div>
+        
         <div className="comment_cont">
           {
             comm.map(function(a, i) {
               return(
                 <div className="commlist" key={i}>
-                  { a }
+                  { a }<span onClick={()=>{goodEdit(good + 1)}}>👍{good}</span>
                 </div>
               )
             })
           }
         </div>
+
+        <div className="plus">
+          <p>더보기</p>          
+        </div>
       </div>
-  
-    
+
+      <div className="input_comment">
+          <input className="id_input" type="text" placeholder="아이디 입력" size="10"
+          onChange={(e) => {commidInputChange(e.target.value) }}/>
+          <input className="comm_input" type="text" placeholder="댓글을 입력해주세요"
+          onChange={(e) => {commInputChange(e.target.value) }}/>
+          <button onClick = { () => {
+            var idCopy = [...commid];
+            var commCopy = [...comm];
+            idCopy.unshift(commidInput);
+            commCopy.unshift(commInput);
+            commidChange(idCopy);
+            commChange(commCopy);
+          }}>SAVE</button>
+      </div>
+{/* 
       {
         title.map(function(a, i) {
           return(
           <div className="list" key={i}>
             <h3 onClick={ () => { clicktitlechange(i) } }>{ a }<span onClick={()=>{goodEdit(good + 1)}}>👍</span>{ good }</h3>
-            {/* <p>6월 3일 발행</p> */}
+            <p>6월 3일 발행</p>
             <div className="Year-Month">
               <p>
                 <Year id="Year" format={"YYYY"} ticking={false} timezone={"KR/Pacific"} />
@@ -149,11 +170,13 @@ function App() {
           </div>
           )
         })
-      }
+      } */}
+     
+      
       {/* <input onChange={ (e)=>{ inputdatachange(e.target.value) }} /> */}
 
 
-      <div className="publish">
+      {/* <div className="publish">
         <input onChange={ (e) => { inputdatachange(e.target.value) }} placeholder="댓글을 입력해주세요"/>
         <button onClick= { () => {
           var arrCopy = [...title];
@@ -161,7 +184,7 @@ function App() {
           titleEdit(arrCopy);
 
         }}>저장</button>
-      </div>
+      </div> */}
       {/* state를 변경할때는 변경함수 사용하기 */}
       
       <button onClick={ () => {changeModal(!modal)}}>Modal 보기</button>

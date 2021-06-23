@@ -33,10 +33,12 @@ body{
   display: inline-block;
 }
 
+.emoji{
+  float:right;
+}
 .emoji div {
   display: inline-block;
   list-style: none;
-  
 }
 
 .feed{
@@ -52,7 +54,7 @@ body{
 }
 
 .myid{
-  padding:15px;
+  padding:10px;
 }
 .story{
   width:100%;
@@ -81,17 +83,18 @@ body{
 }
 
 .myid {
-  padding:10px;
+  
   float: left;
   font-weight: bold;
   text-decoration: underline;
   font-size: 20px;
 }
 
+/* 스토리공간 스타일 */
 .my_story{
   float:left;
-  width:80px;
-  height:80px;
+  width:70px;
+  height:70px;
   margin-right: 20px;
   border-radius: 50%;
   border: 4px dashed #bcbcbc;
@@ -100,11 +103,13 @@ body{
 .friends_story{
   float: left;
   margin-right: 20px;
-  width:80px;
-  height:80px;
+  width:70px;
+  height:70px;
   border-radius: 50%;
   border: 4px dotted #111111;
 }
+
+/* 좋아요 버튼부터 해시태그까지 */
 .reaction{
   margin-bottom: 80px;
 }
@@ -115,21 +120,65 @@ body{
   margin:10px;
 }
 
+.reaction2{
+  float:left;
+}
+
+/* 댓글 스타일 */
+.comment{
+  margin-top: 50px;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+}
+.comment_id{
+  float:left;
+  margin-right:20px;
+}
+
+.input_comment{
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+}
+.id_input{
+  margin-right:10px;
+  padding : 10px 10px;
+  float:left;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.comm_input{
+  margin-right:10px;
+  padding :10px 45px;;
+  float:left;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.input_comment button{
+  padding:10px 10px;
+}
+/* 
+.input_comment input{
+  margin-top:20px;
+  padding :10px 0px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid grey;
+} */
+
+/* 리스트 스타일 */
 .list {
   margin-top: 30px;
   text-align: left;
   padding-left: 20px;
   padding-right: 20px;
-}
-
-.comment_id {
-  margin-left: 20px;
-  float:left;
-}
-.comment{
-  font-size:20px;
-  margin: 10px;
-  font-family: sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
