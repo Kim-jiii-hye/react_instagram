@@ -25,6 +25,7 @@ function App() {
   let [heart, heartCnt] = useState(0);//하트 개수 표현
   let [commid, commidChange] = useState(['apple_123', 'banana_234', 'orange_495']);
   let [comm, commChange] = useState(['맛있겠어요!', '마카롱 사진 이뻐요', '가나다라마바사 댓글']);
+  //댓글 추가 관련 코드
   let [commidInput, commidInputChange] = useState('');
   let [commInput, commInputChange] = useState('');
 
