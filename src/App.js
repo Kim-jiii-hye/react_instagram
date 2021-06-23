@@ -3,14 +3,18 @@ import React, { Component, useState } from 'react';
 import Slider from "react-slick";
 import logo from './logo.svg';
 import './App.css';
-import img1 from './img/flower.png';
-import macarong from './img/macarong.jpg';
-import macarong2 from './img/macarong2.jpg';
-import macarong3 from './img/macarong3.jpg';
+import myprofileimg from './img/flower.png';
+import uploadimg1 from './img/macarong.jpg';
+import uploadimg2 from './img/macarong2.jpg';
+import uploadimg3 from './img/macarong3.jpg';
+import mystoryimg from "./img/rabbit.jpg";
+import friendstoryimg from './img/cow.jpg';
+import friendstoryimg2 from './img/jjanggu.png';
+import friendstoryimg3 from './img/jjangah.png';
 
-import Year from "react-live-clock";
-import Month from "react-live-clock";
-import Date from "react-live-clock";
+// import Year from "react-live-clock";
+// import Month from "react-live-clock";
+// import Date from "react-live-clock";
 
 
 
@@ -59,11 +63,17 @@ function App() {
 
       {/* 스토리 공간 */}
       <div className="story">
-        <div className="my_story">
-          
+        <div>
+          <img className="my_story" src={mystoryimg} />
         </div>
-        <div className="friends_story">
-
+        <div>
+          <img className="friends_story" src={friendstoryimg} />
+        </div>
+        <div>
+          <img className="friends_story" src={friendstoryimg2} />
+        </div>
+        <div>
+          <img className="friends_story" src={friendstoryimg3} />
         </div>
       </div>
 
@@ -74,7 +84,7 @@ function App() {
       <div className="feed">
         {/* myinfo */}
         <div className="feed_profile">
-          <img className="myprofile" src={img1} />
+          <img className="myprofile" src={myprofileimg} />
           <div className="myid">hello_cake_atelier</div>
         </div>
 
@@ -82,13 +92,13 @@ function App() {
           {/* <img src={feedimg} style={{height:'auto', width:'100%'}} /> */}
           <Slider {...settings}>
             <div>
-              <img src={macarong} style={{height:'auto', width:'100%'}} />
+              <img src={uploadimg1} style={{height:'auto', width:'100%'}} />
             </div>
             <div>
-              <img src={macarong2} style={{height:'auto', width:'100%'}} />
+              <img src={uploadimg2} style={{height:'auto', width:'100%'}} />
             </div>
             <div>
-              <img src={macarong3} style={{height:'auto', width:'100%'}} />
+              <img src={uploadimg3} style={{height:'auto', width:'100%'}} />
             </div>
           </Slider>
         </div>
@@ -187,14 +197,14 @@ function App() {
         }}>저장</button>
       </div> */}
       {/* state를 변경할때는 변경함수 사용하기 */}
-      
-      <button onClick={ () => {changeModal(!modal)}}>Modal 보기</button>
+      {/* Modal 코드 */}
+      {/* <button onClick={ () => {changeModal(!modal)}}>Modal 보기</button>
       {
         modal === true
         ? <Modal title={title} clicktitle={clicktitle}></Modal>
         : null
-      }
-      <Profile />
+      } */}
+      {/* <Profile /> */}
      
 
     </div>
@@ -202,37 +212,37 @@ function App() {
 }
 
 
-function Modal(props){
-  return (
-      <div className="modal">
-        <h2>제목 { props.title[props.clicktitle] }</h2>
-        <p>날짜</p>
-        <p>상세내용</p>
-      </div>
+// function Modal(props){
+//   return (
+//       <div className="modal">
+//         <h2>제목 { props.title[props.clicktitle] }</h2>
+//         <p>날짜</p>
+//         <p>상세내용</p>
+//       </div>
 
-  )
-}
+//   )
+// }
 
 export default App;
 
-class Profile extends React.Component {
-  constructor() {
-    super();
-    this.state = {name : 'Kim', age : 25}
-  }
+// class Profile extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = {name : 'Kim', age : 25}
+//   }
 
-  // 상위에 있는 this값 바로 가져다 쓰기 때문에 this.change.bind(this)로 쓰지 않아도 된다
-  change = () => {
-    this.setState({name : 'Park'})
-  }
-  render(){
-    return(
-      <div>
-        <h3>프로필 입니다.</h3>
-        <p>저는 {this.state.name} 입니다.</p>
-        <p>나이는 {this.state.age}세 입니다.</p>
-        <button onClick={ this.change }>이름 바뀌는 버튼</button>
-      </div>
-    )
-  }
-}
+//   // 상위에 있는 this값 바로 가져다 쓰기 때문에 this.change.bind(this)로 쓰지 않아도 된다
+//   change = () => {
+//     this.setState({name : 'Park'})
+//   }
+//   render(){
+//     return(
+//       <div>
+//         <h3>프로필 입니다.</h3>
+//         <p>저는 {this.state.name} 입니다.</p>
+//         <p>나이는 {this.state.age}세 입니다.</p>
+//         <button onClick={ this.change }>이름 바뀌는 버튼</button>
+//       </div>
+//     )
+//   }
+// }

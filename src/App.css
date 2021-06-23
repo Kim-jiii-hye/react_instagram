@@ -97,7 +97,7 @@ body{
   height:70px;
   margin-right: 20px;
   border-radius: 50%;
-  border: 4px dashed #bcbcbc;
+  border: 2px dashed #bcbcbc;
 }
 
 .friends_story{
@@ -106,7 +106,7 @@ body{
   width:70px;
   height:70px;
   border-radius: 50%;
-  border: 4px dotted #111111;
+  border: 2px dotted #111111;
 }
 
 /* 좋아요 버튼부터 해시태그까지 */
@@ -146,6 +146,7 @@ body{
 .id_input{
   margin-right:10px;
   padding : 10px 10px;
+  width:20%;
   float:left;
   font-size: 16px;
   border-radius: 5px;
@@ -153,7 +154,8 @@ body{
 }
 .comm_input{
   margin-right:10px;
-  padding :10px 45px;;
+  padding :10px 45px;
+  width:40%;
   float:left;
   font-size: 16px;
   border-radius: 5px;
